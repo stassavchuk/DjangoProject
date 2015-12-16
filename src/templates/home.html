@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block head_title %}
+Welcome | {{block.super}}
+{% endblock %}
+
+
+<style>
+    {
+    %
+    block
+    style
+    %
+    }
+
+    {
+    %
+    endblock
+    %
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-sm-6" position="absolute">
+
+        {% block content %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h4>{{title}}</h4>
+
+                    <form method="POST" acton="">{% csrf_token %}
+                        {{form|crispy}}
+                        <input class="btn btn-primary" type="submit" value="Sign Up">
+                    </form>
+                </div>
+                <div class="col-xs-3">
+                    <h4>Any text</h4>
+
+                </div>
+                <div class="col-xs-3">
+                    <h4>Another text</h4>
+
+                    <p>
+                        <i class="fa fa-spinner fa-pulse fa-5x"></i>
+                    </p>
+                </div>
+                <div class="col-xs-3">
+                    <h4><i class="fa fa-umbrella"></i> One more text</h4>
+                </div>
+            </div>
+        </div>
+        {% if signups %}
+        <div class="container">
+            <div class="col-xs-6">
+                <h1>Wellcome stuff</h1>
+                <table class="table">
+                    {% for signup in signups %}
+                    <tr>
+                        <td>{{ signup }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        {% endblock %}
+
+
+    </div>
+</div>
